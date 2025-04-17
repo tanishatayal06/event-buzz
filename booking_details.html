@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+  <h2 class="text-2xl font-bold mb-6 text-center">Booking Details</h2>
+  {% if bookings %}
+    <div class="space-y-6">
+      {% for booking in bookings %}
+        <div class="border p-4 rounded-lg bg-gray-50">
+          <p><strong>Name:</strong> {{ booking.customer_name }}</p>
+          <p><strong>Email:</strong> {{ booking.customer_email }}</p>
+          <p><strong>Date:</strong> {{ booking.date.strftime('%Y-%m-%d') }}</p>
+          <p><strong>Services:</strong></p>
+          <ul class="list-disc ml-6">
+            {% for service in booking.services %}
+              <li>{{ service.name }} - ₹{{ service.price }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-center text-gray-500">No bookings found.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Planning Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+
+  <!-- Header Section (Navbar) -->
+  <header class="bg-green-700 p-4 text-white shadow-md">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-semibold">Event Buzz</a>
+
+      <nav class="space-x-4">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+        <a href="/" class="hover:text-green-300">Home</a>
+        <a href="/aboutus" class="hover:text-green-300">About Us</a>
+        <a href="/services" class="hover:text-green-300">Services</a>
+
+        {% if current_user.is_authenticated %}
+          <a href="/dashboard" class="hover:text-green-300">Dashboard</a>
+          <a href="/profile" class="hover:text-green-300">Profile</a>
+          <a href="/logout" class="hover:text-green-300">Logout</a>
+          
+          <!-- Show Latest Booking in Navbar (if exists) -->
+          {% if g.user_booking %}
+            <div class="text-sm text-gray-200">
+              <p>Latest Booking: {{ g.user_booking.customer_name }} - {{ g.user_booking.date.strftime('%Y-%m-%d') }}</p>
+            </div>
+          {% else %}
+            <div class="text-sm text-gray-200">
+              <p>No bookings yet.</p>
+            </div>
+          {% endif %}
+          
+        {% else %}
+          <a href="/login_page" class="hover:text-green-300">Login</a>
+          <a href="/registration" class="hover:text-green-300">Register</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="py-8">
+    <div class="max-w-screen-xl mx-auto">
+      {% block content %}
+      <!-- This is where page-specific content will be inserted -->
+      {% endblock %}
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="bg-green-700 text-white p-4 mt-12">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <p>&copy; 2025 Eventify. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

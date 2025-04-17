@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+        <div class="space-x-4">
+    
+            <a href="{{ url_for('main_page') }}" class="text-blue-600 hover:text-blue-800 font-medium">Home</a>
+            <a href="{{ url_for('profile') }}" class="text-purple-600 hover:text-purple-800 font-medium">Profile</a>
+            <a href="{{ url_for('logout') }}" class="text-red-500 hover:text-red-700 font-medium">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <main class="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg">
+        <!-- User Info -->
+        <div class="flex items-center space-x-6 mb-8">
+            {% if current_user.avatar %}
+                <img src="{{ url_for('static', filename='uploads/' ~ current_user.avatar) }}" alt="Avatar" class="w-20 h-20 rounded-full shadow-md border-2 border-blue-500">
+            {% else %}
+                <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold text-2xl shadow-md border-2 border-blue-500">
+                    {{ current_user.username[0]|upper }}
+                </div>
+            {% endif %}
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-1">Welcome, {{ current_user.username }}!</h2>
+                <p class="text-gray-600">Manage your event services and profile here.</p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="{{ url_for('book') }}" class="bg-green-600 hover:bg-gray-200 text-white px-6 py-3 rounded-lg shadow-md text-center font-semibold transition">Book a Service</a>
+            <a href="{{ url_for('add_service') }}" class="bg-blue-500 hover:bg-gray-200 text-white px-6 py-3 rounded-lg shadow-md text-center font-semibold transition">Add a Service</a>
+            <a href="{{ url_for('edit_profile') }}" class="bg-yellow-500 hover:bg-gray-200 text-white px-6 py-3 rounded-lg shadow-md text-center font-semibold transition">Edit Profile</a>
+            <a href="{{ url_for('change_password') }}" class="bg-red-500 hover:bg-gray-200 text-white px-6 py-3 rounded-lg shadow-md text-center font-semibold transition">Change Password</a>
+        </div>
+    </main>
+
+</body>
+</html>

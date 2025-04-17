@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Entertainment Booking Services - Events &amp; Shows</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+                      </div>
+                      <div class="hidden sm:ml-6 sm:flex sm:space-x-8"><a href="{{ url_for('main_page') }}">Home</a>
+                        <a href="{{ url_for('about_us') }}">About Us</a></div>
+                  </div>
+                <div class="flex items-center">
+                    <button class="bg-custom text-white !rounded-button px-4 py-2 text-sm font-medium hover:bg-custom/90">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-4xl font-[Playfair Display] font-bold text-gray-900 mb-4">Book Your Perfect Entertainment</h1>
+            <div class="flex flex-col md:flex-row gap-4 flex-wrap justify-center">
+                
+                
+                <div class="w-full md:flex-1 min-w-[240px]">
+                    <select class="w-full border-gray-300 !rounded-button focus:border-custom focus:ring-custom">
+                        <option>Location</option>
+                        <option>Mathura City</option>
+                        <option>Vrindavan</option>
+                        <option>Govardhan</option>
+                    </select>
+                </div>
+                <button class="bg-custom text-white !rounded-button px-6 py-2 font-medium hover:bg-custom/90">
+                    <i class="fas fa-search mr-2"></i>Search
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section>
+                <h2 class="text-2xl font-[Playfair Display] font-bold text-gray-900 mb-6"></h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://www.shaadidukaan.com/vogue/wp-content/uploads/2019/08/live-bands-india.jpg" class="w-full h-48 object-cover" alt="Venue"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">Joshi event</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>Collector Ganj Kotwali Road , Mathura</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 text-sm">(4.5)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">Professional live band performance with a mix of popular hits and classical music.</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Live Music</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Band</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Professional Setup</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Contact Venue
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://www.weddingsutra.com/images/Vendor_Images/DJs-entertainers/anchor-sagar-duggal/anchor-sagar-duggal-11.jpg" class="w-full h-48 object-cover" alt="Venue"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">DJ &amp; Anchor Komal Gahlyan</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i> Onkar Nagra Tri Nagar , Delhi</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-gray-600 text-sm">(4.0)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">Professional DJ services with state-of-the-art sound system and lighting effects.</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">DJ Service</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Sound System</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Lighting Effects</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Contact Venue
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-2xl font-[Playfair Display] font-bold text-gray-900 mb-6"></h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://cdn0.weddingwire.in/vendor/3777/3_2/640/jpg/wedding-dj-ayush-gotwar-dj-setup-16_15_353777-160023372170288.jpeg" class="w-full h-48 object-cover" alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900"> RJP DJ & EVENTS</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>Rajput Market, 100 Feet Rd, opp. CNG Pump, Taj Nagri Phase 1</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-gray-600 text-sm">(5.0)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">Hilarious stand-up comedy performances by top comedians for your event.</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Comedy</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Live Show</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">2 Hour Set</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Get Quote
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://content.jdmagicbox.com/comp/agra/h5/9999px565.x565.181206101519.x1h5/catalogue/chandu-musicle-event--bypass-mathura-dj-system-on-hire-xpne91jnjt.jpg" class="w-full h-48 object-cover" alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">Doon Music Group</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>B, 69 C, Rama Park Road, Dwarka More, Delhi - 110059</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 text-sm">(4.5)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">Mesmerizing magic shows with illusions and interactive performances perfect for all ages.</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Magic Acts</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Illusions</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Interactive</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Get Quote
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-white mt-12 border-t">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <img class="h-8 w-auto mb-4" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
+                    <p class="text-gray-600">Bringing the best entertainment options for your events and special occasions.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-custom">About Us</a></li>
+                        <li><a href="#" class="hover:text-custom">Services</a></li>
+                        <li><a href="#" class="hover:text-custom">Venues</a></li>
+                        <li><a href="#" class="hover:text-custom">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-custom">Venue Booking</a></li>
+                        <li><a href="#" class="hover:text-custom">Decoration</a></li>
+                        <li><a href="#" class="hover:text-custom">Planning</a></li>
+                        <li><a href="#" class="hover:text-custom">Catering</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mathuraventures.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Near Krishna Janmasthan, Mathura 281001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-gray-600">
+                <p>© 2025 Venues &amp; Decorations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+   

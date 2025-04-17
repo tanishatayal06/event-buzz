@@ -1,0 +1,53 @@
+<!-- templates/admin_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <nav class="bg-white shadow p-4 flex justify-between">
+        <h1 class="text-xl font-bold">Admin Dashboard</h1>
+        <div>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+            <a href="{{ url_for('main_page') }}" class="mr-4 text-blue-600 hover:underline">Home</a>
+            <a href="{{ url_for('logout') }}" class="text-red-500 hover:underline">Logout</a>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded shadow">
+        <h2 class="text-2xl font-semibold mb-4">Admin Panel</h2>
+        <p class="text-gray-700">Welcome, Admin. Manage users and services from here.</p>
+
+        <div class="mt-6 space-x-4">
+            <a href="{{ url_for('registration') }}" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Create User</a>
+            <a href="{{ url_for('add_service') }}" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add Service</a>
+        </div>
+
+        <h3 class="mt-8 text-xl font-semibold">Manage Users</h3>
+        <table class="min-w-full mt-4">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border">ID</th>
+                    <th class="px-4 py-2 border">Username</th>
+                    <th class="px-4 py-2 border">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users_by_email.values() %}
+                    <tr>
+                        <td class="px-4 py-2 border">{{ user.id }}</td>
+                        <td class="px-4 py-2 border">{{ user.username }}</td>
+                        <td class="px-4 py-2 border">
+                            <a href="#" class="text-red-500 hover:underline">Delete</a> <!-- Add action links for edit/delete -->
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>

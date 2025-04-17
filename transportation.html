@@ -1,0 +1,337 @@
+
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wedding transportation &amp; transortation services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 font-[Inter]">
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+                      </div>
+                      <div class="hidden sm:ml-6 sm:flex sm:space-x-8"><a href="{{ url_for('main_page') }}">Home</a>
+                        <a href="{{ url_for('about_us') }}">About Us</a></div>
+                  </div>
+                <div class="flex items-center">
+                    <button class="bg-custom text-white !rounded-button px-4 py-2 text-sm font-medium hover:bg-custom/90">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-4xl font-[Playfair Display] font-bold text-gray-900 mb-4">Find Your Transportation</h1>
+            <div class="flex flex-col md:flex-row gap-4 flex-wrap justify-center">
+                
+                
+                <div class="w-full md:flex-1 min-w-[240px]">
+                    <select class="w-full border-gray-300 !rounded-button focus:border-custom focus:ring-custom">
+                        <option>Location</option>
+                        <option>Mathura City</option>
+                        <option>Agra </option>
+                        <option>Delhi</option>
+                    </select>
+                </div>
+                <button class="bg-custom text-white !rounded-button px-6 py-2 font-medium hover:bg-custom/90">
+                    <i class="fas fa-search mr-2"></i>Search
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section>
+                <h2 class="text-2xl font-[Playfair Display] font-bold text-gray-900 mb-6"></h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/p/AF1QipPcVHM6a7GDoWeUhtNyahVMaWX2wrfumOHPfzMp=s680-w680-h510" class="w-full h-48 object-cover" alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">Gautam Tour And Travels</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>Maholi Rd, Hari Nagar, Anandpuri, Mathura, Uttar Pradesh 281001</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 text-sm">(4.5)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">"Speed, safety, and service—on every journey."</p>Temple Deco
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Passenger</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Warehousing</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Wedding transport</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Contact Venue
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://content3.jdmagicbox.com/v2/comp/mathura/f9/9999px565.x565.240925173340.q8f9/catalogue/jyehp46edodm2u6-duma7e5tvm.jpg" alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">Dixit Gaadi wale</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>Vrindavan, Mathura</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span class="text-gray-600 text-sm">(4.0)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">Divine themed decoration with traditional elements and devotional touches.</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Passenger travelling</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Car decorater</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Bridal transport</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Contact Venue
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-2xl font-[Playfair Display] font-bold text-gray-900 mb-6"></h2>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVlkeRsDKDFMKYiqYWi_x3cJ__UX_3aP4UQeJ0Juc-_LzTJFPjqyN-WukLiKM5Jl5CZw&usqp=CAU" class="w-full h-48 object-cover  alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">Baba Shyam Transport Co</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>B-4 Ambay Garden, Libaspur, Delhi, 110042</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="text-gray-600 text-sm">(5.0)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">"Delivering your world, one mile at a time."</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Modern Design</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Ceremonial car providers</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Carriage</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Get Quote
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdU7m0k_yV29QSlJVISt6Vz6nrdrUgTUF3ZLgNfY2AM8kdLsvIdVNQ7PapANMUi1cSpBU&usqp=CAU" class="w-full h-full object-cover" alt="Decoration"/>
+                        <div class="p-6">
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900">SHREE KRISHNA GOODS MOVERS</h3>
+                                    <p class="text-gray-600"><i class="fas fa-map-marker-alt mr-2"></i>SHOP NO 1, YADAV MARKET, Sikandra, Agra, Uttar Pradesh 282007</p>
+                                </div>
+                                <div class="text-custom">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span class="text-gray-600 text-sm">(4.5)</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <p class="text-gray-600">"Your trusted route to efficiency and convenience."</p>
+                                <ul class="mt-4 flex flex-wrap gap-2">
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Premium Flowers</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Passenger travelling</li>
+                                    <li class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-600">Car decorater</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                                <button class="flex-1 border border-custom text-custom !rounded-button py-2 font-medium hover:bg-custom/10">
+                                    Get Quote
+                                </button>
+                                <button onclick="confirmBooking(this)" class="flex-1 bg-custom text-white !rounded-button py-2 font-medium hover:bg-custom/90">
+                                    Book Now
+                                </button>
+                                
+                                <script>
+                                  function confirmBooking(button) {
+                                    // Show confirmation dialog
+                                    const confirmAction = confirm("Are you sure you want to book this service?");
+                                    
+                                    if (confirmAction) {
+                                      // Change button text to Booked
+                                      button.textContent = "Booked";
+                                      button.disabled = true;
+                                
+                                      // Change button style
+                                      button.classList.add("bg-green-600", "hover:bg-green-700");
+                                      button.classList.remove("bg-custom", "hover:bg-custom/90");
+                                
+                                      // Redirect to booking confirmation page after 1s
+                                      setTimeout(() => {
+                                        window.location.href = "booking.html";
+                                      }, 1000);
+                                    } else {
+                                      // User clicked Cancel - do nothing
+                                      alert("Booking canceled.");
+                                    }
+                                  }
+                                </script>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-white mt-12 border-t">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <img class="h-8 w-auto mb-4" src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo"/>
+                    <p class="text-gray-600">"Navigating the roads so you don't have to."</p>
+                </div>
+              
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><a href="#" class="hover:text-custom">Venue Booking</a></li>
+                        <li><a href="#" class="hover:text-custom">Decoration</a></li>
+                        <li><a href="#" class="hover:text-custom">Planning</a></li>
+                        <li><a href="#" class="hover:text-custom">Catering</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i>contact@mathuraventures.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Near Krishna Janmasthan, Mathura 281001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t text-center text-gray-600">
+                <p>© 2025 Event Solutions Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>

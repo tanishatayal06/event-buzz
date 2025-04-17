@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Buzz Logo" class="w-16 h-16 rounded-full object-cover mr-4">
+        <div class="space-x-4">
+            <a href="{{ url_for('dashboard') }}" class="text-blue-600 hover:text-blue-800 font-medium">Dashboard</a>
+            <a href="{{ url_for('logout') }}" class="text-red-500 hover:text-red-700 font-medium">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg">
+        <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">My Profile</h2>
+
+        <!-- Profile Info -->
+        <div class="flex items-center space-x-6 mb-8">
+            {% if user.avatar %}
+                <img src="{{ url_for('static', filename='uploads/' ~ user.avatar) }}" alt="Avatar" class="w-28 h-28 rounded-full shadow-md border-2 border-blue-500">
+            {% else %}
+                <div class="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 font-bold text-3xl shadow-md border-2 border-blue-500">
+                    {{ user.username[0]|upper }}
+                </div>
+            {% endif %}
+            <div>
+                <p class="text-2xl font-semibold text-gray-800">{{ user.username }}</p>
+                {% if user.is_admin %}
+                    <span class="text-sm bg-red-100 text-red-600 px-3 py-1 rounded-full mt-1 inline-block font-medium">Admin</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Upload Photo -->
+        <form method="POST" action="{{ url_for('upload_avatar') }}" enctype="multipart/form-data" class="mb-8">
+            <label class="block mb-2 text-sm font-medium text-gray-700">Upload Your Photo</label>
+            <input type="file" name="avatar" accept="image/*" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-400 focus:outline-none mb-4 px-3 py-2">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow-md font-medium transition">Upload Photo</button>
+        </form>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
+            <a href="{{ url_for('edit_profile') }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded-lg text-center font-semibold transition">Edit Profile</a>
+            <a href="{{ url_for('change_password') }}" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg text-center font-semibold transition">Change Password</a>
+        </div>
+    </main>
+
+</body>
+</html>
